@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 28, 2013 10:17:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ss.entity.Account" table="ACCOUNT">
+        <id name="acntId" type="int">
+            <column name="ACNTID" />
+            <generator class="assigned" />
+        </id>
+        <property name="userId" type="int">
+            <column name="USERID" />
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+    </class>
+</hibernate-mapping>

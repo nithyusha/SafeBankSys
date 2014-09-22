@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 28, 2013 10:17:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ss.entity.SavingsAccount" table="SAVINGSACCOUNT">
+        <id name="savingAcntId" type="int">
+            <column name="SAVINGACNTID" />
+            <generator class="increment" />
+        </id>
+        <property name="acntId" type="int">
+            <column name="ACNTID" />
+        </property>
+        <property name="savingActNo" type="java.lang.String">
+            <column name="SAVINGACTNO" />
+        </property>
+        <property name="balance" type="double">
+            <column name="BALANCE" />
+        </property>
+        <many-to-one name="acc" class="com.ss.entity.Account" unique="true" column="acntId" cascade="all" not-null="true">
+            <column name="ACC" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

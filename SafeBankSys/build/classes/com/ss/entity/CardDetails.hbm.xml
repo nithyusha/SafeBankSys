@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="com.ss.entity.CardDetails">
+
+<id name="cardNo"></id>
+
+<property name="expiry"></property>
+
+<property name="ssv_No"></property>
+
+<property name="userId"></property>
+
+<!-- 
+<many-to-one name="sbsusers" column="userId" class="SBSUsers" not-null="true" unique="true" cascade="all">
+</many-to-one>
+ -->
+</class>
+
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 2, 2013 12:11:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ss.entity.UserRoles" table="USER_ROLES">
+        <id name="userRoleId" type="int">
+            <column name="USER_ROLE_ID" />
+            <generator class="increment" />
+        </id>
+        <property name="userId" type="int">
+            <column name="USER_ID" />
+        </property>
+        <property name="authority" type="java.lang.String">
+            <column name="AUTHORITY" />
+        </property>
+        <!-- <many-to-one name="acc" class="com.ss.entity.User" unique="true" column="userId" cascade="all" not-null="true">
+            <column name="ACC" />
+        </many-to-one> -->
+    </class>
+    
+</hibernate-mapping>

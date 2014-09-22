@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security-3.2.xsd
+          http://www.springframework.org/schema/context 
+          http://www.springframework.org/schema/context/spring-context-3.2.xsd
+          http://www.springframework.org/schema/tx 
+    	  http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<security:http auto-config="true" access-denied-page="/forbidden">
+		<security:headers />
+		<security:intercept-url pattern="/welcome*" access="ROLE_REGULAR_EMP,ROLE_DEPARTMENT_MGR,ROLE_CORPORATE_MGR,ROLE_MERCHANT,ROLE_INDIVIDUAL_USER,ROLE_ADMIN" />
+		<security:form-login login-page="/login" default-target-url="/welcome"
+			authentication-failure-url="/loginfailed" />
+		<security:logout logout-success-url="/logout" logout-url="/j_spring_security_logout" invalidate-session="true" delete-cookies="true" />
+		<security:intercept-url pattern="/individual/**" access="ROLE_MERCHANT,ROLE_INDIVIDUAL_USER" />
+		<security:intercept-url pattern="/merchant/**" access="ROLE_MERCHANT,ROLE_INDIVIDUAL_USER" />
+		<!-- <security:intercept-url pattern="/**" access="denyAll" /> -->
+		<security:session-management>
+		<security:concurrency-control max-sessions="1" expired-url="/login" error-if-maximum-exceeded="false" />
+		
+		
+		</security:session-management>
+		
+		
+	</security:http>
+	
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="dataSource"
+				
+				users-by-username-query="
+					select username,password, enabled 
+					from users where USERNAME=?" 
+				
+				authorities-by-username-query="
+					select u.username, ur.authority from users u, user_roles ur 
+					where u.user_id = ur.user_id and u.username =?  " 
+					
+			/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>

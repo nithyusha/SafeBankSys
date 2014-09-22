@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 3, 2013 12:14:14 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ss.entity.CMTransaction" table="CMTRANSACTION">
+        <id name="tId" type="java.lang.Integer" access="field">
+            <column name="TID" />
+            <generator class="increment" />
+        </id>
+        <property name="parentTId" type="java.lang.Integer">
+            <column name="PARENTTID" />
+        </property>
+        <property name="transcName" type="java.lang.String">
+            <column name="TRANSCNAME" />
+        </property>
+        <property name="transDesc" type="java.lang.String">
+            <column name="TRANSDESC" />
+        </property>
+        <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+        </property>
+        <property name="approver1" type="java.lang.String">
+            <column name="APPROVER1" />
+        </property>
+        <property name="approver2" type="java.lang.String">
+            <column name="APPROVER2" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <property name="isCompleted" type="boolean" access="field">
+            <column name="ISCOMPLETED" />
+        </property>
+        <property name="creationDate" type="java.util.Date">
+            <column name="CREATIONDATE" />
+        </property>
+        <property name="lastModifyOn" type="java.util.Date">
+            <column name="LASTMODIFYON" />
+        </property>
+        <property name="lastModifyBy" type="java.lang.String">
+            <column name="LASTMODIFYBY" />
+        </property>
+    </class>
+</hibernate-mapping>
